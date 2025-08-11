@@ -42,3 +42,26 @@ window.addEventListener('scroll', ()=>{
     localStorage. theme = 'light';
     }
 }
+
+
+// Tabbed interface logic
+function showTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+    document.querySelector(`[onclick="showTab('${tab}')"]`).classList.add('active');
+    document.getElementById('tab-' + tab).classList.remove('hidden');
+}
+
+// Fun Fact Carousel
+const funFacts = [
+    "I love coding at night!",
+    "I enjoy learning new frameworks.",
+    "Design is as important as code.",
+    "I play chess for fun.",
+    "I contribute to open source."
+];
+let factIndex = 0;
+setInterval(() => {
+    factIndex = (factIndex + 1) % funFacts.length;
+    document.getElementById('funFactText').textContent = funFacts[factIndex];
+}, 3000);

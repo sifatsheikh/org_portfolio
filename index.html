@@ -11,6 +11,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
 
+    <style>
+        @keyframes skill-bar {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-skill-bar {
+            animation: skill-bar 2s ease-in-out forwards;
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 10s linear infinite;
+        }
+    </style>
+
 </head>
 <body class="overflow-x-hidden font-outfit leading-8 dark:bg-darkTheme dark:text-white">
 
@@ -74,16 +102,24 @@
 
     <!-------- header section start ---------->
 
-    <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
-        <img src="./images/sifat shaikh.01.png" alt="" class="rounded-full w-32">
-        <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">Hi! I'm Sifat Shaikh <img src="./images/hand-icon.png" alt="" class="w-6"></h3>
-        <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">frontend web developer based in bangladesh</h1>
-        <p class="max-w-2xl mx-auto font-Ovo">I am frontent web developer from bangladesh, BD with one years of experience in single companies like Genuity system, sipi.</p>
-
-        <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-            <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-t from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">Contact me <img src="./images/right-arrow-white.png" alt="" class="w-4"></a>
-
-            <a href="./images/my_resume.pdf" download class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black">my resume<img src="./images/download-icon.png" alt="" class="w-4"></a>
+    <div class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <!-- Floating Animated Shapes Background -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+            <div class="absolute top-10 left-10 w-16 h-16 bg-gradient-to-br from-[#b820e6] to-[#da7d20] rounded-full opacity-30 animate-float"></div>
+            <div class="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-br from-[#da7d20] to-[#b820e6] rounded-xl opacity-30 animate-float2"></div>
+            <div class="absolute top-1/2 left-1/4 w-12 h-12 bg-gradient-to-br from-[#b820e6] to-[#da7d20] rounded-full opacity-20 animate-float3"></div>
+        </div>
+        <div class="relative z-10 w-11/12 max-w-3xl text-center mx-auto flex flex-col items-center justify-center gap-4">
+            <img src="./images/sifat shaikh.01.png" alt="" class="rounded-full w-32 shadow-lg border-4 border-[#b820e6] mb-2 animate-profile">
+            <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">Hi! I'm Sifat Shaikh <img src="./images/hand-icon.png" alt="" class="w-6 animate-wave"></h3>
+            <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo min-h-[60px]">
+                <span id="typewriter"></span>
+            </h1>
+            <p class="max-w-2xl mx-auto font-Ovo">I am frontent web developer from bangladesh, BD with one years of experience in single companies like Genuity system, sipi.</p>
+            <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+                <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-t from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">Contact me <img src="./images/right-arrow-white.png" alt="" class="w-4"></a>
+                <a href="./images/my_resume.pdf" download class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black">my resume<img src="./images/download-icon.png" alt="" class="w-4"></a>
+            </div>
         </div>
     </div>
 
@@ -91,63 +127,128 @@
     <!-------- header section end ---------->
 
     <!------- about section start---- -->
-        <div id="about" class="w-full px-[12%] py-10 scroll-mt-10">
-            <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
-            <h2 class="text-center text-5xl font-Ovo">About me</h2>
 
-            <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-                <div class="max-w-max mx-auto relative">
-                    <img src="./images/sifat04.png" alt="" class="w-64 sm:w-80 rounded-3xl max-w-none">
-                    <div class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center">
-                        <img src="./images/circular-text.png" alt="" class="w-full animate-spin_slow">
-                        <img src="./images/dev-icon.png" alt="" class="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div id="about" class="w-full px-4 sm:px-6 md:px-10 lg:px-[12%] py-12 scroll-mt-10">
+            <div class="flex flex-col-reverse lg:flex-row gap-10 lg:gap-16 items-center justify-center">
+                <!-- Profile & Animated Stats (centered on mobile, square image with rotating border) -->
+                <div class="flex flex-col items-center justify-center w-full max-w-md mx-auto">
+                    <div class="relative w-56 h-56 mb-8 mx-auto">
+                        <!-- Rotating border animation -->
+                        <div class="absolute inset-0 rounded-xl border-8 border-gradient-to-r from-[#b820e6] via-[#da7d20] to-[#b820e6] animate-spin-slow"></div>
+                        <img src="./images/sifat04.png" alt="Profile" class="rounded-xl w-56 h-56 object-cover border-4 border-white shadow-2xl mx-auto z-10 relative">
+                        <img src="./images/dev-icon.png" alt="Dev Icon" class="w-14 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-bounce z-20">
                     </div>
+                    <h2 class="text-3xl sm:text-4xl font-Ovo text-[#b820e6] mb-2 text-center">Sifat Shaikh</h2>
+                    <h4 class="text-base sm:text-lg font-Ovo text-gray-600 dark:text-white/80 mb-4 text-center">Frontend Web Developer</h4>
+                    <div class="flex gap-4 sm:gap-6 justify-center mb-6 flex-wrap">
+                        <div class="flex flex-col items-center">
+                            <span class="text-2xl sm:text-3xl font-bold text-[#b820e6] animate-pulse" id="projectCount">5+</span>
+                            <span class="text-xs text-gray-700 dark:text-white">Projects</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <span class="text-2xl sm:text-3xl font-bold text-[#da7d20] animate-pulse" id="expCount">1</span>
+                            <span class="text-xs text-gray-700 dark:text-white">Year Exp</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <span class="text-2xl sm:text-3xl font-bold text-[#b820e6] animate-pulse" id="clientCount">2+</span>
+                            <span class="text-xs text-gray-700 dark:text-white">Companies</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="mt-4 px-8 py-2 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-Ovo shadow hover:scale-105 transition">Contact Me</a>
                 </div>
-                <div class="flex-1">
-                    <p class="mb-10 max-w-2xl font-Ovo">
-                        Front-end web development focuses on creating the user interface and experience of websites or applications using technologies like HTML, CSS, and JavaScript. It ensures functionality, responsiveness, and visual appeal for users.
-                    </p>
-                    <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w2xl">
-                        <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#lightHover] hover:-translate-y-1 duration-500 hover:shadow-black
-                        dark:border-white dark:hover:shadow-white dark:hover-bg-[#1f2122]">
-                            <img src="./images/code-icon.png" alt="" class="w-7 mt-3 dark:hidden">
-                            <img src="./images/code-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
-                            <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
-                            <p class="text-gray-600 text-sm dark:text-white/80">HTML, CSS, JAVASCRIPT, PHP</p>
-                        </li>
-                        <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#lightHover] hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover-bg-[#1f2122]">
-                            <img src="./images/edu-icon.png" alt="" class="w-7 mt-3 dark:hidden">
-                            <img src="./images/edu-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
-                            <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
-                            <p class="text-gray-600 text-sm dark:text-white/80">Diploma in Computer Science</p>
-                        </li>
-                        <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-[#lightHover] hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover-bg-[#1f2122]">
-                            <img src="./images/project-icon.png" alt="" class="w-7 mt-3 dark:hidden">
-                            <img src="./images/project-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
-                            <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Project</h3>
-                            <p class="text-gray-600 text-sm dark:text-white/80">Built more then 5 projects</p>
-                        </li>
-                    </ul>
-
-
-                    <h4 class="my-6 text-gray-700 font-Ovo dark:text-white">Tools i use</h4>
-                    <ul class="flex items-center gap-3 sm:gap-5">
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="images/vscode.png" alt="">
-                        </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="images/html.png" alt="">
-                        </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="images/css3.png" alt="">
-                        </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="images/javascript.png" alt="">
-                        </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="images/github.png" alt="">
-                        </li>
-                    </ul>
+                <!-- Tabbed Info Section & Animated Progress Bars -->
+                <div class="w-full max-w-xl mx-auto flex flex-col gap-10">
+                    <div>
+                        <div class="flex gap-2 sm:gap-4 mb-6 flex-wrap justify-center">
+                            <button class="tab-btn px-4 sm:px-6 py-2 rounded-full bg-[#b820e6]/10 text-[#b820e6] font-semibold active" onclick="showTab('skills')">Skills</button>
+                            <button class="tab-btn px-4 sm:px-6 py-2 rounded-full bg-[#da7d20]/10 text-[#da7d20] font-semibold" onclick="showTab('education')">Education</button>
+                            <button class="tab-btn px-4 sm:px-6 py-2 rounded-full bg-[#b820e6]/10 text-[#b820e6] font-semibold" onclick="showTab('projects')">Projects</button>
+                        </div>
+                        <div id="tab-skills" class="tab-content">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="flex flex-col gap-2 p-4 rounded-xl bg-white/40 dark:bg-[#191a1b]/60 shadow hover:scale-105 transition cursor-pointer">
+                                    <div class="flex items-center gap-2">
+                                        <img src="images/html.png" alt="HTML" class="w-8">
+                                        <span class="text-xs text-gray-700 dark:text-white font-semibold">HTML</span>
+                                    </div>
+                                    <div class="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-3 bg-gradient-to-r from-[#b820e6] to-[#da7d20] rounded-full animate-skill-bar" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 p-4 rounded-xl bg-white/40 dark:bg-[#191a1b]/60 shadow hover:scale-105 transition cursor-pointer">
+                                    <div class="flex items-center gap-2">
+                                        <img src="images/css3.png" alt="CSS" class="w-8">
+                                        <span class="text-xs text-gray-700 dark:text-white font-semibold">CSS</span>
+                                    </div>
+                                    <div class="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-3 bg-gradient-to-r from-[#da7d20] to-[#b820e6] rounded-full animate-skill-bar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 p-4 rounded-xl bg-white/40 dark:bg-[#191a1b]/60 shadow hover:scale-105 transition cursor-pointer">
+                                    <div class="flex items-center gap-2">
+                                        <img src="images/javascript.png" alt="JavaScript" class="w-8">
+                                        <span class="text-xs text-gray-700 dark:text-white font-semibold">JavaScript</span>
+                                    </div>
+                                    <div class="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-3 bg-gradient-to-r from-[#b820e6] to-[#da7d20] rounded-full animate-skill-bar" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 p-4 rounded-xl bg-white/40 dark:bg-[#191a1b]/60 shadow hover:scale-105 transition cursor-pointer">
+                                    <div class="flex items-center gap-2">
+                                        <img src="images/php.png" alt="PHP" class="w-8">
+                                        <span class="text-xs text-gray-700 dark:text-white font-semibold">PHP</span>
+                                    </div>
+                                    <div class="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-3 bg-gradient-to-r from-[#da7d20] to-[#b820e6] rounded-full animate-skill-bar" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 p-4 rounded-xl bg-white/40 dark:bg-[#191a1b]/60 shadow hover:scale-105 transition cursor-pointer">
+                                    <div class="flex items-center gap-2">
+                                        <img src="images/github.png" alt="Github" class="w-8">
+                                        <span class="text-xs text-gray-700 dark:text-white font-semibold">Github</span>
+                                    </div>
+                                    <div class="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                        <div class="h-3 bg-gradient-to-r from-[#b820e6] to-[#da7d20] rounded-full animate-skill-bar" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-education" class="tab-content hidden">
+                            <ul class="border-l-2 border-[#b820e6]/40 pl-6">
+                                <li class="mb-6 relative">
+                                    <span class="absolute -left-3 top-1 w-4 h-4 bg-gradient-to-br from-[#b820e6] to-[#da7d20] rounded-full shadow"></span>
+                                    <div class="text-lg font-semibold text-gray-800 dark:text-white">Diploma in Computer Science</div>
+                                    <div class="text-sm text-gray-600 dark:text-white/80">Education</div>
+                                </li>
+                                <li class="relative">
+                                    <span class="absolute -left-3 top-1 w-4 h-4 bg-gradient-to-br from-[#da7d20] to-[#b820e6] rounded-full shadow"></span>
+                                    <div class="text-lg font-semibold text-gray-800 dark:text-white">Genuity System, SIPI</div>
+                                    <div class="text-sm text-gray-600 dark:text-white/80">Companies</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="tab-projects" class="tab-content hidden">
+                            <ul class="border-l-2 border-[#da7d20]/40 pl-6">
+                                <li class="mb-6 relative">
+                                    <span class="absolute -left-3 top-1 w-4 h-4 bg-gradient-to-br from-[#da7d20] to-[#b820e6] rounded-full shadow"></span>
+                                    <div class="text-lg font-semibold text-gray-800 dark:text-white">Portfolio Website</div>
+                                    <div class="text-sm text-gray-600 dark:text-white/80">Personal Project</div>
+                                </li>
+                                <li class="relative">
+                                    <span class="absolute -left-3 top-1 w-4 h-4 bg-gradient-to-br from-[#b820e6] to-[#da7d20] rounded-full shadow"></span>
+                                    <div class="text-lg font-semibold text-gray-800 dark:text-white">E-commerce Platform</div>
+                                    <div class="text-sm text-gray-600 dark:text-white/80">Client Project</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Fun Fact Carousel -->
+                    <div class="mt-10">
+                        <h3 class="text-xl font-Ovo text-[#da7d20] mb-2">Fun Facts</h3>
+                        <div id="funFactCarousel" class="bg-white/40 dark:bg-[#191a1b]/60 rounded-xl p-6 shadow flex items-center justify-center text-lg font-semibold text-gray-700 dark:text-white min-h-[60px]">
+                            <span id="funFactText">I love coding at night!</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,36 +260,49 @@
     <!-- -------Services section start -------->
      <!-- -------Services section start -------->
 
-     <div id="services" class="w-full px-[12%] py-10 scroll-mt-20">
-        <h4 class="text-center mb-2 text-lg font-Ovo">What i offer</h4>
-        <h2 class="text-center text-5xl">my services</h2>
-        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-            I am frontent web developer from bangladesh, BD with one years of experience in single companies like Genuity system, sipi.
+
+    <div id="services" class="w-full px-[12%] py-16 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo tracking-wide uppercase text-[#b820e6]">What I Offer</h4>
+        <h2 class="text-center text-5xl font-Ovo mb-4">My Services</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo text-gray-600 dark:text-white/80">
+            I am a frontend web developer from Bangladesh with one year of experience in companies like Genuity System and SIPI. I offer a range of services to help you build, design, and launch your digital presence.
         </p>
-        <div class="grid grid-cols-auto gap-6 my-10">
-            <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-[#lightHover] hover:-translate-y-1 duration-500 dark:border-white dark:hover:shadow-white dark:hover-bg-[#1f2122]">
-                <img src="./images/web-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">web design</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">web development is the process of building, progremming...</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-10">
+            <!-- Service Card 1 -->
+            <div class="group bg-gradient-to-br from-[#b820e6]/20 to-[#da7d20]/20 border border-transparent rounded-2xl px-8 py-12 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer dark:from-[#b820e6]/30 dark:to-[#da7d20]/30">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="./images/web-icon.png" alt="Web Design" class="w-16 h-16 drop-shadow-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3 text-center">Web Design</h3>
+                <p class="text-base text-gray-600 dark:text-white/80 text-center">Modern, responsive websites tailored to your brand and audience.</p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-6 justify-center text-[#b820e6] font-semibold group-hover:underline">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
             </div>
-            <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-[#lightHover] hover:-translate-y-1 duration-500 dark:border-white dark:hover:shadow-white dark:hover-bg-[#1f2122]">
-                <img src="./images/mobile-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Mobile App</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Software for smartphones and tablets.</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+            <!-- Service Card 2 -->
+            <div class="group bg-gradient-to-br from-[#da7d20]/20 to-[#b820e6]/20 border border-transparent rounded-2xl px-8 py-12 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer dark:from-[#da7d20]/30 dark:to-[#b820e6]/30">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="./images/mobile-icon.png" alt="Mobile App" class="w-16 h-16 drop-shadow-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3 text-center">Mobile App</h3>
+                <p class="text-base text-gray-600 dark:text-white/80 text-center">Cross-platform mobile applications for iOS and Android devices.</p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-6 justify-center text-[#da7d20] font-semibold group-hover:underline">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
             </div>
-            <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-[#lightHover] hover:-translate-y-1 duration-500 dark:border-white dark:hover:shadow-white dark:hover-bg-[#1f2122]">
-                <img src="./images/ui-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">UI/UX</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">UI/UX designs user-friendly and engaging experiences.</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+            <!-- Service Card 3 -->
+            <div class="group bg-gradient-to-br from-[#b820e6]/20 to-[#da7d20]/20 border border-transparent rounded-2xl px-8 py-12 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer dark:from-[#b820e6]/30 dark:to-[#da7d20]/30">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="./images/ui-icon.png" alt="UI/UX" class="w-16 h-16 drop-shadow-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3 text-center">UI/UX Design</h3>
+                <p class="text-base text-gray-600 dark:text-white/80 text-center">User-friendly and engaging interfaces for web and mobile platforms.</p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-6 justify-center text-[#b820e6] font-semibold group-hover:underline">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
             </div>
-            <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-[#lightHover] hover:-translate-y-1 duration-500 dark:border-white dark:hover:shadow-white dark:hover-bg-[#1f2122]">
-                <img src="./images/graphics-icon.png" alt="" class="w-10">
-                <h3 class="text-lg my-4 text-gray-700 dark:text-white">Graphics design</h3>
-                <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Graphic design is visual communication through art and design.</p>
-                <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+            <!-- Service Card 4 -->
+            <div class="group bg-gradient-to-br from-[#da7d20]/20 to-[#b820e6]/20 border border-transparent rounded-2xl px-8 py-12 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer dark:from-[#da7d20]/30 dark:to-[#b820e6]/30">
+                <div class="flex items-center justify-center mb-6">
+                    <img src="./images/graphics-icon.png" alt="Graphics Design" class="w-16 h-16 drop-shadow-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3 text-center">Graphics Design</h3>
+                <p class="text-base text-gray-600 dark:text-white/80 text-center">Creative visual communication through art, branding, and design.</p>
+                <a href="#" class="flex items-center gap-2 text-sm mt-6 justify-center text-[#da7d20] font-semibold group-hover:underline">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
             </div>
         </div>
     </div>
@@ -200,61 +314,52 @@
 
      <!-- ---------my work section start--------- -->
 
-     <div id="work" class="w-full px-6 md:px-[12%] py-10 scroll-mt-20">
-        <h4 class="text-center mb-2 text-base md:text-lg font-Ovo">My Portfolio</h4>
-        <h2 class="text-center text-3xl md:text-5xl">My latest work</h2>
-        <p class="text-center max-w-lg md:max-w-2xl mx-auto mt-5 mb-12 text-sm md:text-base font-Ovo">Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end development</p>
-        <div class="grid grid-cols-auto my-10 gap-5 dark:text-black">
-            <div class="aspect-square bg-[url('./images/work-1.png')] bg-no-repeat bg-cover rounded-lg relative cursor-pointer group">
 
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Web project</h2>
-                        <p class="text-sm text-gray-700">Web design</p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./images/send-icon.png" alt="" class="w-5">
-                    </div>
+    <div id="work" class="w-full px-6 md:px-[12%] py-16 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo tracking-wide uppercase text-[#da7d20]">Portfolio</h4>
+        <h2 class="text-center text-5xl font-Ovo mb-4">My Latest Work</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo text-gray-600 dark:text-white/80">
+            Explore a collection of my recent projects, showcasing expertise in front-end development, UI/UX, and creative solutions for clients.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-10">
+            <!-- Work Card 1 -->
+            <div class="relative group rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-[#191a1b] hover:scale-105 transition-all duration-300 cursor-pointer">
+                <img src="./images/work-1.png" alt="Project 1" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">Web Project</h3>
+                    <p class="text-sm text-white/80 mb-4">Modern web design for business growth.</p>
+                    <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-[#b820e6] text-white rounded-full font-Ovo hover:bg-[#da7d20] transition">View Project <img src="./images/send-icon.png" alt="" class="w-5"></a>
                 </div>
             </div>
-            <div class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover rounded-lg relative cursor-pointer group">
-
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Web project</h2>
-                        <p class="text-sm text-gray-700">Web design</p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./images/send-icon.png" alt="" class="w-5">
-                    </div>
+            <!-- Work Card 2 -->
+            <div class="relative group rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-[#191a1b] hover:scale-105 transition-all duration-300 cursor-pointer">
+                <img src="./images/work-2.png" alt="Project 2" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">E-commerce Platform</h3>
+                    <p class="text-sm text-white/80 mb-4">Responsive online store with payment integration.</p>
+                    <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-[#da7d20] text-white rounded-full font-Ovo hover:bg-[#b820e6] transition">View Project <img src="./images/send-icon.png" alt="" class="w-5"></a>
                 </div>
             </div>
-            <div class="aspect-square bg-[url('./images/work-3.png')] bg-no-repeat bg-cover rounded-lg relative cursor-pointer group">
-
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Web project</h2>
-                        <p class="text-sm text-gray-700">Web design</p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./images/send-icon.png" alt="" class="w-5">
-                    </div>
+            <!-- Work Card 3 -->
+            <div class="relative group rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-[#191a1b] hover:scale-105 transition-all duration-300 cursor-pointer">
+                <img src="./images/work-3.png" alt="Project 3" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">Mobile App UI</h3>
+                    <p class="text-sm text-white/80 mb-4">Intuitive mobile interface for user engagement.</p>
+                    <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-[#b820e6] text-white rounded-full font-Ovo hover:bg-[#da7d20] transition">View Project <img src="./images/send-icon.png" alt="" class="w-5"></a>
                 </div>
             </div>
-            <div class="aspect-square bg-[url('./images/work-4.png')] bg-no-repeat bg-cover rounded-lg relative cursor-pointer group">
-
-                <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
-                    <div>
-                        <h2 class="font-semibold">Web project</h2>
-                        <p class="text-sm text-gray-700">Web design</p>
-                    </div>
-                    <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-                        <img src="./images/send-icon.png" alt="" class="w-5">
-                    </div>
+            <!-- Work Card 4 -->
+            <div class="relative group rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-[#191a1b] hover:scale-105 transition-all duration-300 cursor-pointer">
+                <img src="./images/work-4.png" alt="Project 4" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">Branding & Graphics</h3>
+                    <p class="text-sm text-white/80 mb-4">Creative branding and graphic design solutions.</p>
+                    <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-[#da7d20] text-white rounded-full font-Ovo hover:bg-[#b820e6] transition">View Project <img src="./images/send-icon.png" alt="" class="w-5"></a>
                 </div>
             </div>
         </div>
-        <a href="#" class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-[#lightHover] duration-500 dark:text-white dark:border-white dark:hover:-bg-[#f3f3f3]">show more 
+        <a href="#" class="w-max flex items-center justify-center gap-2 text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] rounded-full py-3 px-10 mx-auto my-20 shadow-lg hover:scale-105 transition font-Ovo">Show More
             <img src="./images/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
             <img src="./images/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
         </a>
@@ -315,6 +420,33 @@
 
 
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const typewriterTexts = [
+            "Frontend Web Developer based in Bangladesh",
+            "UI/UX Enthusiast & Creative Coder",
+            "Building Modern, Responsive Websites"
+        ];
+        let twIndex = 0, charIndex = 0, isDeleting = false;
+        const twElement = document.getElementById('typewriter');
+        function typeWriter() {
+            if (!twElement) return;
+            let currentText = typewriterTexts[twIndex];
+            let displayText = isDeleting ? currentText.substring(0, charIndex--) : currentText.substring(0, charIndex++);
+            twElement.innerHTML = displayText + '<span style="border-right:2px solid #b820e6;">&nbsp;</span>';
+            if (!isDeleting && charIndex === currentText.length + 1) {
+                setTimeout(() => { isDeleting = true; typeWriter(); }, 1200);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                twIndex = (twIndex + 1) % typewriterTexts.length;
+                setTimeout(typeWriter, 400);
+            } else {
+                setTimeout(typeWriter, isDeleting ? 40 : 80);
+            }
+        }
+        typeWriter();
+    });
+    </script>
     <script src="./script.js"></script>
 </body>
 </html>
